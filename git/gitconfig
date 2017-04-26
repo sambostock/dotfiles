@@ -1,0 +1,16 @@
+[include]
+	path = config/advice
+	path = config/alias
+	path = config/color
+	path = config/column
+	path = config/commit
+	path = config/core
+	path = config/diff
+	path = config/grep
+	path = config/help
+	path = config/interactive
+	path = config/log
+	path = config/merge
+	path = config/rebase
+	path = config/rerere
+	path = config/user

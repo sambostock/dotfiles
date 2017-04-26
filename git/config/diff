@@ -1,0 +1,5 @@
+[diff]
+        mnemonicPrefix = true
+        renames = copies
+        algorithm = histogram
+        indentHeuristic = true

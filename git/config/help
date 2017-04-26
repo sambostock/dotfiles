@@ -1,0 +1,4 @@
+[help]
+        # If autocorrect comes up with only one suggestion,
+        # automatically run it after 5 seconds
+	autoCorrect = 50

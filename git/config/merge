@@ -1,0 +1,4 @@
+[merge]
+	tool = vimdiff
+	prompt = false
+        log = true

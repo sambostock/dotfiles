@@ -1,0 +1,4 @@
+[user]
+	name = Sam Bostock
+        # Don't specify an email, as it might vary by system
+	useConfigOnly = true

@@ -1,0 +1,14 @@
+[alias]
+	# Shorthand
+	st = status
+	co = checkout
+
+	amend = commit --amend --no-edit
+
+	# gitignore.io
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	ignore-list = "!git ignore list | tr ',' \"\\n\""
+	ignore-search = "!_git_ignore_search() { git ignore-list | grep -E --color=always \"$*\"; }; _git_ignore_search"
+
+	# Advanced logging
+	tree = log --all --decorate --graph --oneline
