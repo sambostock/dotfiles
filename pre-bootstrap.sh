@@ -13,24 +13,15 @@ set -eux
 case "$(uname -s)" in
 
      Darwin)
-     # macOS has a git executable, but all it does is install command line tools.
-     # Therefore, we should go through the steps to install command line tools ourselves first.
-     xcode-select --install > /dev/null 2>&1
-     if [ 0 == $? ]; then
-       sleep 1
-       osascript <<'APPLESCRIPT'
-         tell application "System Events"
-           tell process "Install Command Line Developer Tools"
-             keystroke return
-             click button "Agree" of window "License Agreement"
-             end tell
-           end tell
-APPLESCRIPT
-     else
-	echo "Command Line Developer Tools are already installed!"
-     fi
+     # macOS comes with a `git` executable, but all it does is prompt to install Command Line Tools and exit unsuccessfully.
+     # We can re-run it every second to check if it has installed sucessfully or not.
+     # AFAIK, there is no way to bypass the prompt and install automatically.
+     echo 'Ensuring git is installed...'
+     until git --version > /dev/null 2>&1; do sleep 1; done
 
      which git
+
+     echo "This is where we would continue with cloning the dotfiles repo and bootstrapping from there..."
      ;;
 
      *)
