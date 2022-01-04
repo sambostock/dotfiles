@@ -4,11 +4,12 @@
 # - clone dotfiles
 # - run bootstrap.sh
 
-# Set the following bash options
+# Make Bash strict
 #   -e  Exit immediately if a command exits with a non-zero status.
 #   -u  Treat unset variables as an error when substituting.
-#   -x  Print commands and their arguments as they are executed.
-set -eux
+set -eu
+
+set -x # TODO: Stop echoing commands after this is stable
 
 case "$(uname -s)" in
 
