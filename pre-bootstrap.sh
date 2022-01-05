@@ -86,6 +86,10 @@ clone_dotfiles() {
 	git clone https://github.com/sambostock/dotfiles.git $destination_dir
 }
 
+bootstrap() (
+  cd "$HOME/src/github.com/sambostock/dotfiles" && ./bootstrap.sh
+)
+
 
 case "$(uname -s)" in
 
@@ -94,7 +98,7 @@ case "$(uname -s)" in
 
 	     clone_dotfiles
 
-	     echo "This is where we could continue with bootstraping dotfiles..."
+	     bootstrap
      ;;
 
      *)
