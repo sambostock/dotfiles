@@ -11,6 +11,12 @@ set -eu
 
 set -x # TODO: Stop echoing commands after this is stable
 
+# Also stolen from Homebrew
+chomp() {
+  printf "%s" "${1/"$'\n'"/}"
+}
+
+# Thanks homebrew
 xcode_clt_git_installed() {
      # We can't just check `which git` because macOS ships with a `git`
      # executable that just prompts the user to install Command Line Tools.
