@@ -88,7 +88,9 @@ clone_dotfiles() {
 }
 
 bootstrap() (
-  cd "$HOME/src/github.com/sambostock/dotfiles" && ./bootstrap.sh
+  cd "$HOME/src/github.com/sambostock/dotfiles" &&
+	  git checkout m1 && # TODO: Remove this once on `main`
+	  ./bootstrap.sh
 )
 
 
