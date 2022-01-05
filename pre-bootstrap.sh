@@ -81,7 +81,8 @@ ensure_git_installed_macos() {
 
 clone_dotfiles() {
 	# Use Shopify/dev convention
-	local destination_dir="$HOME/src/github.com/sambostock"
+	local destination_dir="$HOME/src/github.com/sambostock/dotfiles"
+	# TODO: Check if dotfiles already exists, and if so.... prompt for what to do?
 	mkdir -p $destination_dir
 	git clone https://github.com/sambostock/dotfiles.git $destination_dir
 }
