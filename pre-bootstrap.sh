@@ -11,12 +11,10 @@ set -eu
 
 set -x # TODO: Stop echoing commands after this is stable
 
-echo "defining chomp"
 # Also stolen from Homebrew
 chomp() {
   printf "%s" "${1/"$'\n'"/}"
 }
-echo "defined chomp"
 
 # Thanks homebrew
 xcode_clt_git_installed() {
@@ -81,15 +79,22 @@ ensure_git_installed_macos() {
      install_xcode_clt # Install XCode Command Line Tools, which includes git
 }
 
+clone_dotfiles() {
+	# Use Shopify/dev convention
+	local destination_dir="$HOME/src/github.com/sambostock"
+	mkdir -p $destination_dir
+	git clone https://github.com/sambostock/dotfiles.git $destination_dir
+}
+
 
 case "$(uname -s)" in
 
      Darwin)
 	     ensure_git_installed_macos
 
-	     which git
+	     clone_dotfiles
 
-     echo "This is where we would continue with cloning the dotfiles repo and bootstrapping from there..."
+	     echo "This is where we could continue with bootstraping dotfiles..."
      ;;
 
      *)
