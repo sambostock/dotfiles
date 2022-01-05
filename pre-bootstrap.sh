@@ -11,10 +11,12 @@ set -eu
 
 set -x # TODO: Stop echoing commands after this is stable
 
+echo "defining chomp"
 # Also stolen from Homebrew
 chomp() {
   printf "%s" "${1/"$'\n'"/}"
 }
+echo "defined chomp"
 
 # Thanks homebrew
 xcode_clt_git_installed() {
