@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # This script's purpose is to acquire the dotfiles repo and run its bootstrap script.
+# The idea is to run this to initiate setup of a new physical machine.
 # We may update the system along the way to ensure we start off fresh.
 # No point installing a bunch of old stuff only to have to update it immediately.
 
@@ -132,8 +133,7 @@ EOABORT
 }
 
 clone_dotfiles() (
-	mkdir -p $DOTFILES_DIR
-	cd $DOTFILES_DIR
+	mkdir -p $DOTFILES_DIR && cd $DOTFILES_DIR
 
         # Are dotfiles already checked out?
 	if [ -d .git ]
@@ -146,7 +146,7 @@ clone_dotfiles() (
 			echo "Not updating dirty dotfiles git repo"
 		fi
 	else
-		git clone $DOTFILES_URL $DOTFILES_DIR
+		git clone $DOTFILES_URL .
 	fi
 
 	git checkout $DOTFILES_BRANCH

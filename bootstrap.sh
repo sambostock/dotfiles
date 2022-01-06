@@ -7,4 +7,15 @@ set -eu
 
 set -x # TODO: Stop echoing commands after this is stable
 
-echo "We made it to the bootstrap!"
+case "$(uname -s)" in
+     Darwin)
+	     echo "macos detected"
+	     bootstrap/macos.sh
+     ;;
+
+     # TODO: Spin, Codespaces, etc.
+     *)
+	     echo "Unsupported or unknown OS: $(uname -s)"
+	     exit 1
+     ;;
+esac
